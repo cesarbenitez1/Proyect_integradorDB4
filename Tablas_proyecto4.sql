@@ -184,22 +184,6 @@ VALUES
   (67, 14, 4, 7, 490),
   (71, 15, 9, 6, 150),
   (72, 15, 5, 9, 270);
- 
-SELECT MIN(precio_unitario) as Precio_minimo,
-				 		MAX(precio_unitario) as Precio_maximo,
-						AVG(precio_unitario) as Precio_promedio
-FROM producto;
-
-SELECT s.nombre AS sucursal, sum(st.cantidad)AS cantidad_total
-FROM sucursal s 
-JOIN stock st ON s.id = st.sucursal_id
-GROUP BY s.nombre
-
-SELECT c.nombre AS Nombre_cliente, SUM(i.monto_venta)AS total_ventas
-FROM cliente c
-JOIN orden o ON c.id = o.cliente_id 
-JOIN item i ON i.id = i.orden_id
-GROUP BY c.nombre
 
 
  
